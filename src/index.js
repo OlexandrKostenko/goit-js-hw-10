@@ -16,7 +16,7 @@ input.addEventListener('input', debounce(() => {
 } else {
     Notiflix.Notify.failure("Oops, there is no country with that name")
 }
-}, DEBOUNCE_DELAY))
+}, DEBOUNCE_DELAY));
 
 
 function fetchCountry (countryForSearch){
@@ -27,7 +27,7 @@ return fetch(`https://restcountries.com/v3.1/name/${countryForSearch}?fields=nam
     }
     return response.json()
 });
-}
+};
 
 function showCountry(country) {
     
@@ -44,7 +44,7 @@ function showCountry(country) {
         countryInfo.innerHTML = renderInfo(country[0]);
     };
 
-}
+};
 
 function error() {
     Notiflix.Notify.failure("Oops, there is no country with that name")
@@ -53,7 +53,7 @@ function error() {
 function renderList(country) {
     const {name, flags} = country;
     return country.map(({flags, name}) => {return `<li class='country-item'><img src ='${flags.svg}' alt = '${name.official}' class='flag' width =50px height 40px>${name.official}</li>`}).join('');
-}
+};
 
 function renderInfo(country) {
     const {name, flags, capital, population, languages} = country;
@@ -66,10 +66,10 @@ function renderInfo(country) {
     <p class='description'>Population : ${population}</p>
     <p class='description'>Languages : ${Object.values(languages)}</p>
     </div>`;
-}
+};
 
 function clearMarkUp() {
     countryInfo.innerHTML = '';
     countryList.innerHTML = '';
-}
+};
 
