@@ -1,4 +1,4 @@
-/* import './css/styles.css'; */
+import './css/styles.css';
 import Notiflix from 'notiflix';
 import debounce from 'lodash.debounce';
 import { fetchCountry } from './fetchCountry';
@@ -17,17 +17,6 @@ input.addEventListener('input', debounce(() => {
     Notiflix.Notify.failure("Oops, there is no country with that name")
 }
 }, DEBOUNCE_DELAY));
-
-
-function fetchCountry (countryForSearch){
-return fetch(`https://restcountries.com/v3.1/name/${countryForSearch}?fields=name,population,flags,languages,capital`)
-.then(response => {
-    if(!response.ok) {
-        throw Error(response.statusText);
-    }
-    return response.json()
-});
-};
 
 function showCountry(country) {
     
